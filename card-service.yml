@@ -14,6 +14,16 @@ spring:
       enabled: true
       path: /h2-console
 
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: card-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    properties:
+      enable.auto.commit: true
+
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
     show-sql: true
